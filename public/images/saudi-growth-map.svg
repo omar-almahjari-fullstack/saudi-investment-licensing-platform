@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0b1424"/>
+      <stop offset="100%" stop-color="#0a1220"/>
+    </radialGradient>
+    <linearGradient id="arrow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <!-- Decorative sparkles -->
+  <g fill="#fbbf24" opacity="0.35">
+    <circle cx="140" cy="220" r="2"/>
+    <circle cx="380" cy="120" r="2"/>
+    <circle cx="520" cy="460" r="2"/>
+    <circle cx="820" cy="200" r="2"/>
+    <circle cx="1180" cy="360" r="2"/>
+    <circle cx="1320" cy="180" r="2"/>
+    <circle cx="1480" cy="420" r="2"/>
+    <circle cx="260" cy="560" r="2"/>
+    <circle cx="760" cy="640" r="2"/>
+  </g>
+  <!-- Stylized KSA outline (abstract polygon) -->
+  <g fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.9" filter="url(#glow)">
+    <path d="M480,540 L440,480 L460,420 L520,360 L600,320 L700,300 L780,320 L860,360 L940,420 L980,500 L960,620 L880,680 L760,700 L640,680 L560,640 Z"/>
+  </g>
+  <!-- Rising arrows -->
+  <g fill="none" stroke="url(#arrow)" stroke-width="10" filter="url(#glow)">
+    <path d="M200,720 C520,660 720,560 980,480"/>
+    <path d="M260,760 C560,700 780,600 1080,520" stroke-width="6"/>
+    <path d="M340,800 C640,740 880,640 1200,560" stroke-width="4"/>
+  </g>
+  <!-- Arrow heads -->
+  <g fill="#22d3ee">
+    <polygon points="980,480 960,468 970,496"/>
+    <polygon points="1080,520 1064,510 1072,534"/>
+    <polygon points="1200,560 1188,552 1194,572"/>
+  </g>
+</svg>

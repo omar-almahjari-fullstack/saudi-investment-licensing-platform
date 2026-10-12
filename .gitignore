@@ -1,0 +1,42 @@
+# Local settings, credentials, and environment files
+.env
+.env.*
+
+# Dependencies and generated application files
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/bootstrap/cache/
+/storage/
+/public/storage
+/scripts/
+
+# Keep the source visible, but omit files needed for a standard Laravel install
+/artisan
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/bootstrap/app.php
+/public/index.php
+
+# Local databases, exports, and uploaded data
+/*.sql
+/database/*.sql
+/database/*.sqlite
+/database/*.sqlite-*
+
+# Local tooling and editor files
+/.qodo/
+/.idea/
+/.vscode/
+.phpunit.cache/
+.DS_Store
+Thumbs.db
+
+# Showcase screenshots
+/screenshots/*
+!/screenshots/Screenshot_20261013_012130_Chrome.jpg
+!/screenshots/Screenshot_20261013_012211_Chrome.jpg
+!/screenshots/Screenshot_20261013_012301_Chrome.jpg

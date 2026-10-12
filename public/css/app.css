@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Digital Grid Background */
+.digital-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #001122 0%, #000511 100%);
+  opacity: 0.9;
+}
+
+.digital-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* Glowing particles */
+.particles {
+  /* make particles fixed so they stay within viewport and don't create extra page height */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffff;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+}
+
+/* Saudi map silhouette */
+.saudi-map {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-image: url('https://customer-assets.emergentagent.com/job_9bccb4ef-9534-49c4-902d-f672ed817129/artifacts/cfq01sxl_Generated%20Image%20October%2006%2C%202025%20-%204_08AM.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3;
+  top: 20%;
+  right: -200px;
+  animation: mapGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes mapGlow {
+  from { opacity: 0.2; filter: brightness(0.8); }
+  to { opacity: 0.4; filter: brightness(1.2); }
+}
+
+/* Growth arrows */
+.growth-arrows {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #00ffff;
+  animation: arrowFloat 3s ease-in-out infinite;
+}
+
+.arrow:nth-child(1) { top: 30%; left: 70%; animation-delay: 0s; }
+.arrow:nth-child(2) { top: 45%; left: 80%; animation-delay: 1s; }
+.arrow:nth-child(3) { top: 35%; left: 85%; animation-delay: 2s; }
+
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.1); }
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+  to { text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px #00ffff; }
+}
+
+/* Network connections */
+.network-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.network-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  animation: networkPulse 4s ease-in-out infinite;
+}
+
+.network-line:nth-child(1) {
+  top: 25%;
+  left: 60%;
+  width: 200px;
+  transform: rotate(25deg);
+}
+
+.network-line:nth-child(2) {
+  top: 50%;
+  left: 65%;
+  width: 150px;
+  transform: rotate(-15deg);
+  animation-delay: 1s;
+}
+
+.network-line:nth-child(3) {
+  top: 40%;
+  left: 75%;
+  width: 180px;
+  transform: rotate(45deg);
+  animation-delay: 2s;
+}
+
+@keyframes networkPulse {
+  0%, 100% { opacity: 0.3; box-shadow: 0 0 5px #00ffff; }
+  50% { opacity: 0.8; box-shadow: 0 0 15px #00ffff; }
+}
+
+/* Modern card styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.investment-card {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.investment-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.6);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #00ffff 0%, #0099cc 100%);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  font-weight: 500;
+  padding: 10px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #ffd700;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Language toggle */
+.language-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .saudi-map {
+    width: 400px;
+    height: 300px;
+    right: -100px;
+  }
+  
+  .network-line {
+    width: 100px !important;
+  }
+  
+  .arrow {
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 12px;
+  }
+}
+
+/* Back-to-home fixed button styles (top-right) */
+#back-home-container { position: fixed; top: 18px; right: 20px; z-index: 10020; display: none; }
+#back-home-container a { padding: 10px 14px; border-radius: 26px; transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease; }
+#back-home-container.show { display: block; }
+#back-home-container a:focus { outline: 2px solid rgba(34,211,238,0.18); }
+/* When the sidebar is docked (desktop), move the button left so it doesn't overlap the sidebar */
+@media (min-width: 1024px) {
+  body.sidebar-docked #back-home-container { right: calc(260px + 20px); }
+}
+
+/* Flash toasts (global) */
+.flash-toasts {
+  position: fixed;
+  top: calc(var(--nav-h, 68px) + 12px);
+  right: 20px;
+  z-index: 11000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; /* allow clicks to pass unless interacting with a toast */
+}
+
+.ft-toast {
+  pointer-events: auto;
+  background: rgba(15,23,36,0.94);
+  color: #e6eef8;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  min-width: 220px;
+  max-width: 420px;
+  transform: translateY(-6px) scale(0.995);
+  opacity: 0;
+  transition: opacity .18s ease, transform .18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ft-toast.visible { opacity: 1; transform: translateY(0) scale(1); }
+.ft-toast .ft-body { flex: 1; text-align: right; }
+.ft-toast .ft-close { background: transparent; border: 0; color: #9ca3af; font-size: 18px; cursor: pointer; padding: 4px 6px; }
+.ft-toast.ft-success { border-left: 4px solid #10b981; }
+.ft-toast.ft-error { border-left: 4px solid #ef4444; }
+.ft-toast.ft-warning { border-left: 4px solid #f59e0b; }
+.ft-toast.ft-info { border-left: 4px solid #3b82f6; }
+/* Hide 'status' toasts (used for informational notices like existing-investor alert)
+  Keep success toasts visible. If you later want to show status toasts, remove this rule. */
+.ft-toast.ft-status { display: none !important; }
+
+@media (max-width: 768px) {
+  .flash-toasts { right: 12px; left: 12px; top: calc(var(--nav-h, 68px) + 8px); }
+  .ft-toast { min-width: auto; width: auto; }
+}
